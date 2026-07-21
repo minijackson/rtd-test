@@ -9,6 +9,6 @@ build:
   jobs:
     build:
       html:
-        - nix --store /tmp/nix --extra-experimental-features "nix-command flakes" build -L 'github:epics-extensions/EPNix#docs'
+        - nix --store ./nix --extra-experimental-features "nix-command flakes" build -L 'github:epics-extensions/EPNix#docs'
         - mkdir -p $READTHEDOCS_OUTPUT
-        - cp -rT "/tmp/nix/$(readlink result)/share/doc/epnix/html" $READTHEDOCS_OUTPUT/html
+        - cp -rT "./nix/$(readlink result)/share/doc/epnix/html" $READTHEDOCS_OUTPUT/html
