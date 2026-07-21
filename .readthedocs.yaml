@@ -5,6 +5,6 @@ build:
   commands:
     - curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-$(uname -m) > ./nix-portable
     - chmod +x ./nix-portable
-    - ./nix-portable nix build -L .
+    - ./nix-portable nix build -L 'github:epics-extensions/EPNix#docs'
     - mkdir -p $READTHEDOCS_OUTPUT
-    - cp -rT "$HOME/.nix-portable/$(readlink result)/share/doc" $READTHEDOCS_OUTPUT/html
+    - cp -rT "$HOME/.nix-portable/$(readlink result)/share/doc/epnix/html" $READTHEDOCS_OUTPUT/html
