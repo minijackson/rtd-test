@@ -6,5 +6,5 @@ build:
     - curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-$(uname -m) > ./nix-portable
     - chmod +x ./nix-portable
     - ./nix-portable nix build -L .
-    - cp -r result/share/doc/* $READTHEDOCS_OUTPUT/html/
+    - ./nix-portable nix shell 'nixpkgs#coreutils' -c cp -rT result/share/doc $READTHEDOCS_OUTPUT/html
 
