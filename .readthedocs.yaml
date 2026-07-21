@@ -4,7 +4,10 @@ build:
   os: ubuntu-lts-latest
   apt_packages:
     - nix-bin
+    - curl
+    - plantuml
   commands:
+    - plantuml --version
     - nix build -L 'github:epics-extensions/EPNix#docs'
     - mkdir -p $READTHEDOCS_OUTPUT
     - cp -rT ./result/share/doc/epnix/html $READTHEDOCS_OUTPUT/html
