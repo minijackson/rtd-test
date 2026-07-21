@@ -1,0 +1,15 @@
+version: 2
+
+build:
+  os: ubuntu-24.04
+  commands:
+    # Install single-user Nix (no root required)
+    - curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
+    - . ~/.nix-profile/etc/profile.d/nix.sh
+    # Enable flakes
+    - mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+    # Build your docs with Nix
+    - nix build -L .
+    # Copy output to RTD's expected directory
+    - cp -r result/share/doc/* $READTHEDOCS_OUTPUT/html/
+
