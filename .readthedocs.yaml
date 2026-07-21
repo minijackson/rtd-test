@@ -3,6 +3,7 @@ version: 2
 build:
   os: ubuntu-24.04
   commands:
+    - unshare --user --pid echo YES
     # Install single-user Nix (no root required)
     - curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
     - . ~/.nix-profile/etc/profile.d/nix.sh
