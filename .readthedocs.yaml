@@ -5,6 +5,7 @@ build:
   apt_packages:
     - nix-bin
   tools:
+    python: latest
   jobs:
     build:
       html:
